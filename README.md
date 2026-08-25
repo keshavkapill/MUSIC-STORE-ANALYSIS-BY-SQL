@@ -85,7 +85,10 @@ The database contains a lot of information, but raw data alone does not answer q
 
 > Which customers are the most valuable?
 
-This project uses **SQL as the analytical tool** to turn those questions into measurable answers.
+This project uses **SQL as the analytical tool** to turn those questions into measurable answers. 
+
+Schema- Music Store Database  
+![MusicDatabaseSchema](https://user-images.githubusercontent.com/112153548/213707717-bfc9f479-52d9-407b-99e1-e94db7ae10a3.png)
 
 ### The complete idea
 
