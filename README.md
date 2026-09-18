@@ -56,16 +56,61 @@ Instead of simply writing queries, the project follows a complete analytical pro
 
 > **Understand the data → Ask business questions → Query the database → Analyze the results → Extract insights**
 
-The analysis focuses on:
+<table>
+<tr>
+<td>
 
-- 👥 Customer behavior
-- 💰 Sales and revenue
-- 🎵 Music preferences
-- 🎤 Artists and albums
-- 🎧 Genres
-- 🌍 Country and city performance
-- 🧾 Customer purchases
-- 📊 Business performance
+## 🔴 01 — PROBLEM STATEMENT
+
+A digital music store generates data across multiple interconnected entities including **customers, invoices, tracks, albums, artists, genres, employees, and playlists**.
+
+The challenge is to convert this relational data into meaningful business information that can answer questions around **customer purchasing behaviour, sales performance, music preferences, artist popularity, and geographic demand**.
+
+This project addresses the problem through structured SQL analysis, transforming raw database records into insights that can support data-driven understanding of the music-store business.
+
+</td>
+</tr>
+</table>
+
+<br>
+
+<table>
+<tr>
+<td>
+
+## 🔵 02 — APPROACH
+
+The project follows an **end-to-end SQL data analysis workflow**.
+
+The database is explored using fundamental and advanced SQL concepts including **SELECT, filtering, JOINs, GROUP BY, ORDER BY, aggregate functions, subqueries, and nested queries**.
+
+The analysis begins with general business questions such as invoice activity, customer spending, revenue by location, and employee information. It then progresses into deeper analysis of **artists, genres, tracks, customer preferences, and geographic purchasing behaviour**.
+
+Advanced queries combine multiple relational tables to determine patterns such as **genre popularity by country** and **the highest-spending customer within each country**.
+
+</td>
+</tr>
+</table>
+
+<br>
+
+<table>
+<tr>
+<td>
+
+## 🟢 03 — FINDINGS
+
+The SQL analysis reveals meaningful patterns across the music-store database.
+
+The project identifies **high-value customers, leading artists, popular genres, purchasing activity across countries, and customer spending behaviour**. It also analyses tracks based on characteristics such as duration and examines customer interactions with specific music genres.
+
+The advanced analysis provides a geographic perspective by identifying the **most popular genre in individual countries** and the **highest-spending customer in each country**.
+
+Overall, the project demonstrates how SQL can connect multiple relational tables and transform transactional and catalogue data into structured **business intelligence and actionable analytical insights**.
+
+</td>
+</tr>
+</table>
 
 ---
 
