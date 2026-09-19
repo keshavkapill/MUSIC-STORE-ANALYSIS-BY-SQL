@@ -1,386 +1,222 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🎵 Music Store Analysis - SQL Data Analytics</title>
-  <style>
-    :root {
-      --bg-color: #0d1117;
-      --card-bg: #161b22;
-      --border-color: #30363d;
-      --text-main: #c9d1d9;
-      --text-heading: #ffffff;
-      --accent-cyan: #00e5ff;
-      --accent-blue: #4169e1;
-      --accent-purple: #8a2be2;
-      --accent-red: #ff1744;
-      --accent-green: #00e676;
-      --code-bg: #1f242c;
-    }
+<div align="center">
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+# 🎵 MUSIC STORE ANALYSIS
 
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: var(--bg-color);
-      color: var(--text-main);
-      line-height: 1.6;
-      padding: 20px;
-    }
+### <i>Turning Music Store Data Into Business Insights</i>
 
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
+<p>
+<strong>SQL • PostgreSQL • Data Analytics • Relational Database • Business Intelligence</strong>
+</p>
 
-    /* Header & Banners */
-    .header-banner {
-      width: 100%;
-      border-radius: 8px;
-      overflow: hidden;
-      margin-bottom: 20px;
-    }
+<a href="https://github.com/keshavkapill/MUSIC-STORE-ANALYSIS-BY-SQL">
+<img src="https://img.shields.io/badge/📂%20VIEW%20REPOSITORY-181717?style=for-the-badge&logo=github&logoColor=white"/>
+</a>
+<a href="https://www.linkedin.com/in/keshavkapil15/">
+<img src="https://img.shields.io/badge/💼%20LINKEDIN-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
+</a>
 
-    .header-banner img {
-      width: 100%;
-      display: block;
-    }
+<br><br>
 
-    .subtitle {
-      text-align: center;
-      font-size: 1.25rem;
-      font-weight: 600;
-      color: var(--text-heading);
-      margin-bottom: 20px;
-    }
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0F172A,35:312E81,70:6D28D9,100:00C2FF&height=250&section=header&text=🎵%20Music%20Store%20Analysis&fontSize=45&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Turning%20Music%20Store%20Data%20Into%20Business%20Insights&descAlignY=63&descSize=17"/>
 
-    /* Centered Button & Badge Groups */
-    .badge-group {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 20px;
-    }
+</div>
 
-    .badge-group img {
-      height: 28px;
-    }
+---
 
-    hr {
-      border: 0;
-      height: 1px;
-      background: var(--border-color);
-      margin: 30px 0;
-    }
+<div align="center">
 
-    /* Section Styling */
-    h2 {
-      font-size: 1.75rem;
-      color: var(--text-heading);
-      margin-bottom: 15px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+### 🎯 `DATA → DATABASE → SQL → ANALYSIS → INSIGHTS`
 
-    h3 {
-      font-size: 1.25rem;
-      color: var(--text-heading);
-      margin: 15px 0 10px 0;
-    }
+<img src="https://img.shields.io/badge/SQL-Data%20Analytics-336791?style=for-the-badge&logo=postgresql&logoColor=white"/>
+<img src="https://img.shields.io/badge/PostgreSQL-Database-4169E1?style=for-the-badge&logo=postgresql&logoColor=white"/>
+<img src="https://img.shields.io/badge/pgAdmin4-Database%20Management-336791?style=for-the-badge&logo=postgresql&logoColor=white"/>
+<img src="https://img.shields.io/badge/Data%20Analytics-Business%20Insights-8A2BE2?style=for-the-badge"/>
 
-    p {
-      margin-bottom: 15px;
-    }
+<br>
 
-    ul {
-      margin-left: 20px;
-      margin-bottom: 15px;
-    }
+<img src="https://img.shields.io/badge/JOINS-SQL-FF8C00?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/SUBQUERIES-SQL-8A2BE2?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/CTEs-SQL-007ACC?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/WINDOW%20FUNCTIONS-SQL-E53935?style=for-the-badge"/>
 
-    li {
-      margin-bottom: 6px;
-    }
+</div>
 
-    /* ASCII Diagrams & Code Blocks */
-    .ascii-diagram, code-block {
-      background-color: var(--code-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 6px;
-      padding: 15px;
-      font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
-      font-size: 0.88rem;
-      color: #e6edf3;
-      overflow-x: auto;
-      white-space: pre;
-      margin-bottom: 20px;
-    }
+---
 
-    pre code {
-      background-color: transparent;
-      padding: 0;
-    }
+# 🎧 PROJECT OVERVIEW
 
-    /* Problem Statement, Approach & Findings Cards */
-    .card-section {
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      margin-bottom: 30px;
-    }
+> **Music Store Analysis** is an end-to-end SQL Data Analytics project designed to transform a relational music-store database into meaningful business insights.
 
-    .card {
-      background-color: var(--card-bg);
-      border-radius: 8px;
-      border: 1px solid var(--border-color);
-      padding: 20px;
-      position: relative;
-    }
+The project works with interconnected information related to:
 
-    .card.red { border-left: 5px solid var(--accent-red); }
-    .card.green { border-left: 5px solid var(--accent-green); }
-    .card.cyan { border-left: 5px solid var(--accent-cyan); }
+**Customers • Invoices • Invoice Items • Tracks • Albums • Artists • Genres • Playlists • Employees**
 
-    .card h3 {
-      margin-top: 0;
-    }
+Instead of simply retrieving database records, the project focuses on answering practical analytical questions involving:
 
-    /* Blockquotes */
-    blockquote {
-      background-color: var(--card-bg);
-      border-left: 4px solid var(--accent-cyan);
-      padding: 12px 18px;
-      margin-bottom: 15px;
-      border-radius: 0 6px 6px 0;
-    }
+* 👥 Customer purchasing behaviour
+* 💰 Revenue and sales performance
+* 🎵 Music and genre preferences
+* 🎸 Artist and track analysis
+* 🌍 Geographic purchasing patterns
+* 🏆 Customer spending
+* 📊 Business-oriented decision making
 
-    blockquote p {
-      margin-bottom: 6px;
-      font-weight: 500;
-    }
+The complete workflow moves from **understanding the database** to **asking business questions**, then using SQL to extract and interpret the required information.
 
-    blockquote p:last-child {
-      margin-bottom: 0;
-    }
+---
 
-    /* Tables */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-bottom: 25px;
-      background-color: var(--card-bg);
-      border-radius: 6px;
-      overflow: hidden;
-    }
+# 🧭 PROJECT FLOW
 
-    th, td {
-      border: 1px solid var(--border-color);
-      padding: 12px 15px;
-      text-align: left;
-    }
+```text
+                    🎵 MUSIC STORE DATA
+                            │
+                            ▼
+                  🗂️ DATASET / CSV FILES
+                            │
+                            ▼
+                  🗄️ RELATIONAL DATABASE
+                            │
+                            ▼
+                  🔍 BUSINESS QUESTIONS
+                            │
+                            ▼
+                    💻 SQL ANALYSIS
+                            │
+             ┌──────────────┼──────────────┐
+             ▼              ▼              ▼
+        👥 CUSTOMER      💰 SALES       🎵 MUSIC
+        ANALYSIS        ANALYSIS       ANALYSIS
+             │              │              │
+             └──────────────┼──────────────┘
+                            ▼
+                     🌍 GEO ANALYSIS
+                            │
+                            ▼
+                    📊 FINAL INSIGHTS
+                            │
+             ┌──────────────┴──────────────┐
+             ▼                             ▼
+       📄 ANALYSIS REPORT             📊 PRESENTATION
+```
 
-    th {
-      background-color: #21262d;
-      color: var(--text-heading);
-    }
+---
 
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 20px;
-      margin-bottom: 25px;
-    }
+# 🔴 01 — PROBLEM STATEMENT
 
-    .grid-card {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 20px;
-      text-align: center;
-    }
+A digital music store generates large amounts of transactional and catalogue data.
 
-    .grid-card h3 {
-      border-bottom: 1px solid var(--border-color);
-      padding-bottom: 10px;
-      margin-bottom: 15px;
-    }
+However, storing data is not the same as understanding it.
 
-    /* Resource Links */
-    .resource-list {
-      list-style: none;
-      margin-left: 0;
-    }
+The database contains information about:
 
-    .resource-list li {
-      margin-bottom: 12px;
-    }
+```text
+Customers
+    ↓
+Invoices
+    ↓
+Invoice Lines
+    ↓
+Tracks
+    ↓
+Albums
+    ↓
+Artists
+    ↓
+Genres
+```
 
-    .resource-list a {
-      text-decoration: none;
-      display: inline-block;
-    }
+The challenge is to connect these different entities and answer questions such as:
 
-    /* Footer */
-    .footer {
-      text-align: center;
-      margin-top: 40px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border-color);
-    }
+> **Who are the highest-value customers?**
 
-    .author-box {
-      background-color: var(--card-bg);
-      border: 1px solid var(--border-color);
-      border-radius: 8px;
-      padding: 25px;
-      text-align: center;
-      max-width: 600px;
-      margin: 0 auto 20px auto;
-    }
+> **Which countries generate the most revenue?**
 
-    /* Code Syntax Highlighting Simulation */
-    .keyword { color: #ff7b72; font-weight: bold; }
-    .function { color: #d2a8ff; }
-    .string { color: #a5d6ff; }
-    .comment { color: #8b949e; font-style: italic; }
-  </style>
-</head>
-<body>
+> **Which genres are most popular?**
 
-<div class="container">
+> **Which artists have the largest catalogue?**
 
-  <!-- HEADER -->
-  <div class="header-banner">
-    <img
-      src="https://capsule-render.vercel.app/api?type=waving&color=0:0F172A,45:1E293B,75:334155,100:00C2FF&height=260&section=header&text=🎵%20Music%20Store%20Analysis&fontSize=46&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Turning%20Music%20Store%20Data%20Into%20Business%20Insights&descAlignY=65&descSize=17"
-      alt="Music Store Analysis Banner"
-    />
-  </div>
+> **Which customer spends the most within each country?**
 
-  <p class="subtitle">
-    An end-to-end SQL Data Analytics project focused on customer behaviour,
-    sales performance, music preferences, revenue analysis and geographic insights.
-  </p>
+> **How can SQL transform transactional records into useful business information?**
 
-  <!-- ACTION BUTTONS -->
-  <div class="badge-group">
-    <a href="https://github.com/keshavkapill/MUSIC-STORE-ANALYSIS-BY-SQL" target="_blank">
-      <img src="https://img.shields.io/badge/📂%20VIEW%20REPOSITORY-181717?style=for-the-badge&logo=github&logoColor=white" alt="View Repository" />
-    </a>
-    <a href="https://www.linkedin.com/in/keshavkapil15/" target="_blank">
-      <img src="https://img.shields.io/badge/💼%20LINKEDIN-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
-    </a>
-  </div>
+This project addresses these questions through structured relational SQL analysis.
 
-  <!-- TECH STACK BADGES -->
-  <div class="badge-group">
-    <img src="https://img.shields.io/badge/SQL-Data%20Analytics-336791?style=for-the-badge&logo=postgresql&logoColor=white" alt="SQL" />
-    <img src="https://img.shields.io/badge/PostgreSQL-Database-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
-    <img src="https://img.shields.io/badge/pgAdmin4-Database%20Analysis-336791?style=for-the-badge&logo=postgresql&logoColor=white" alt="pgAdmin4" />
-    <img src="https://img.shields.io/badge/Data%20Analytics-Business%20Insights-00A86B?style=for-the-badge" alt="Data Analytics" />
-  </div>
+---
 
-  <!-- SQL CONCEPTS BADGES -->
-  <div class="badge-group">
-    <img src="https://img.shields.io/badge/JOINS-Advanced-FF8C00?style=for-the-badge" alt="Joins" />
-    <img src="https://img.shields.io/badge/SUBQUERIES-SQL-8A2BE2?style=for-the-badge" alt="Subqueries" />
-    <img src="https://img.shields.io/badge/CTEs-SQL-007ACC?style=for-the-badge" alt="CTEs" />
-    <img src="https://img.shields.io/badge/WINDOW%20FUNCTIONS-SQL-E53935?style=for-the-badge" alt="Window Functions" />
-  </div>
+# 🟢 02 — PROJECT OBJECTIVE
 
-  <hr>
+The primary objective is to demonstrate how **SQL can be used as a complete analytical tool** for extracting business insights from a relational database.
 
-  <!-- PROJECT OVERVIEW -->
-  <section>
-    <h2>🎧 PROJECT OVERVIEW</h2>
-    <div class="badge-group" style="justify-content: flex-start;">
-      <img src="https://img.shields.io/badge/DATA%20→%20SQL%20→%20ANALYSIS%20→%20INSIGHTS-00E5FF?style=for-the-badge" alt="Workflow Badge" />
-    </div>
-    <p>
-      <strong>Music Store Analysis</strong> is an end-to-end <strong>SQL Data Analytics project</strong> built around a relational music-store database.
-    </p>
-    <p>
-      The project takes structured transactional and catalogue data and uses SQL to investigate business questions related to:
-    </p>
-    <p><strong>Customer Spending • Sales Performance • Music Preferences • Artists • Genres • Revenue • Geographic Demand</strong></p>
+### Key objectives
 
-    <h3>Analytical Workflow</h3>
-    <div class="ascii-diagram">UNDERSTAND THE DATA
-       ↓
-ASK BUSINESS QUESTIONS
-       ↓
-QUERY THE DATABASE
-       ↓
-ANALYZE THE RESULTS
-       ↓
-EXTRACT BUSINESS INSIGHTS</div>
-  </section>
+```text
+✓ Understand the relational database structure
 
-  <hr>
+✓ Explore customer and transaction data
 
-  <!-- EXECUTIVE CARDS -->
-  <section class="card-section">
-    <div class="card red">
-      <h2>🔴 01 — PROBLEM STATEMENT</h2>
-      <p>A digital music store generates information across multiple interconnected entities such as <strong>customers, invoices, invoice lines, tracks, albums, artists, genres, employees and playlists.</strong></p>
-      <p>While the database contains a large amount of transactional and catalogue information, raw records alone do not directly answer important business questions.</p>
-      <p>The analytical challenge is to transform this relational data into meaningful information around <strong>customer purchasing behaviour, sales performance, music preferences, artist popularity and geographic demand.</strong></p>
-      <p>This project addresses that challenge through structured SQL analysis, connecting related tables and converting database records into measurable business insights.</p>
-    </div>
+✓ Analyse revenue and purchasing behaviour
 
-    <div class="card green">
-      <h2>🟢 02 — APPROACH</h2>
-      <p>The project follows a structured <strong>end-to-end SQL analytics workflow</strong> rather than treating SQL as simply a query-writing exercise.</p>
-      <p>The database is explored using SQL concepts ranging from fundamental data retrieval and filtering to advanced relational analysis.</p>
-      <p>The analysis makes use of concepts including <strong>SELECT, WHERE, ORDER BY, GROUP BY, aggregate functions, JOINs, subqueries, nested queries, CTEs and window functions.</strong></p>
-      <p>The questions progress from basic database exploration towards deeper business analysis involving <strong>customer spending, sales, genres, artists and geographic purchasing behaviour.</strong></p>
-      <p>The final objective is to connect query results back to the original business question and interpret what the data is actually showing.</p>
-    </div>
+✓ Identify high-value customers
 
-    <div class="card cyan">
-      <h2>🔵 03 — FINDINGS</h2>
-      <p>The analysis extracts business-oriented insights from the music-store database across multiple dimensions.</p>
-      <p>The project investigates <strong>high-value customers, purchasing activity, revenue distribution, popular genres, artist activity and geographic purchasing patterns.</strong></p>
-      <p>Advanced SQL analysis can be used to examine questions such as the <strong>most popular genre within a country</strong> and the <strong>highest-spending customer within a country.</strong></p>
-      <p>The resulting analysis demonstrates how relational data can be transformed from individual database records into structured information that is easier to interpret from a business perspective.</p>
-    </div>
-  </section>
+✓ Analyse genres, artists and tracks
 
-  <hr>
+✓ Study country-level purchasing patterns
 
-  <!-- BUSINESS QUESTIONS -->
-  <section>
-    <h2>💡 WHAT DOES THIS PROJECT ACTUALLY DO?</h2>
-    <p>Imagine a digital music store containing information about thousands of:</p>
-    <p><strong>Customers • Invoices • Tracks • Albums • Artists • Genres • Employees • Playlists</strong></p>
-    <p>The database contains the information, but business questions require analysis. For example:</p>
+✓ Use advanced SQL techniques
 
-    <blockquote>
-      <p>🎯 <strong>Who spends the most?</strong></p>
-      <p>💰 <strong>Which customers contribute the most revenue?</strong></p>
-      <p>🎵 <strong>Which genres are most popular?</strong></p>
-      <p>🎸 <strong>Which artists have the largest number of tracks?</strong></p>
-      <p>🌍 <strong>Which countries generate the most purchasing activity?</strong></p>
-      <p>👤 <strong>Who is the highest-spending customer in each country?</strong></p>
-    </blockquote>
+✓ Convert query results into business insights
+```
 
-    <p>This project uses <strong>SQL as the analytical layer</strong> between the raw relational data and these business questions.</p>
-  </section>
+---
 
-  <hr>
+# 🔵 03 — ANALYTICAL APPROACH
 
-  <!-- DATABASE STRUCTURE -->
-  <section>
-    <h2>🗄️ DATABASE STRUCTURE</h2>
-    <p>The Music Store database is based on interconnected relational entities.</p>
-    
-    <div class="ascii-diagram">                         🎵 MUSIC STORE DATABASE
+The project follows a progressive analytical workflow.
+
+### LEVEL 01 — DATA UNDERSTANDING
+
+Understand the available entities, attributes and relationships.
+
+### LEVEL 02 — DATA EXPLORATION
+
+Explore records using filtering, sorting and aggregation.
+
+### LEVEL 03 — RELATIONAL ANALYSIS
+
+Connect multiple tables using appropriate joins.
+
+### LEVEL 04 — BUSINESS ANALYSIS
+
+Convert business questions into SQL queries.
+
+### LEVEL 05 — ADVANCED SQL
+
+Use:
+
+```text
+JOINs
+Subqueries
+CTEs
+Window Functions
+Aggregate Functions
+GROUP BY
+HAVING
+ORDER BY
+CASE
+```
+
+### LEVEL 06 — INSIGHT GENERATION
+
+Interpret query results from a business perspective rather than stopping at raw output.
+
+---
+
+# 🗄️ DATABASE ARCHITECTURE
+
+The project is based on a relational music-store database.
+
+```text
+                         🎵 MUSIC STORE DATABASE
                                   │
              ┌────────────────────┼────────────────────┐
              │                    │                    │
@@ -405,269 +241,729 @@ EXTRACT BUSINESS INSIGHTS</div>
                         🎧 PLAYLIST
                              │
                              ▼
-                      🔗 PLAYLIST TRACK</div>
+                      🔗 PLAYLIST TRACK
+```
 
-    <h3>🖼️ DATABASE SCHEMA</h3>
-    <p style="text-align: center;">
-      <img src="https://user-images.githubusercontent.com/112153548/213707717-bfc9f479-52d9-407b-99e1-e94db7ae10a3.png" alt="Music Store Database Schema" style="max-width: 100%; border-radius: 6px; border: 1px solid var(--border-color);" />
-      <br>
-      <strong>Music Store Relational Database Schema</strong>
-    </p>
+---
 
-    <h3 style="margin-top: 30px;">📊 ANALYTICAL DOMAINS</h3>
-    <div class="grid-3">
-      <div class="grid-card">
-        <h3>👥 CUSTOMER</h3>
-        <p>Customer behaviour, spending and purchasing patterns.</p>
-        <p><strong>Spending<br>Purchases<br>Revenue Contribution<br>Country-level Customers</strong></p>
-      </div>
-      <div class="grid-card">
-        <h3>💰 SALES</h3>
-        <p>Revenue and purchasing activity across the store.</p>
-        <p><strong>Invoices<br>Revenue<br>Purchasing Activity<br>Geographic Sales</strong></p>
-      </div>
-      <div class="grid-card">
-        <h3>🎵 MUSIC</h3>
-        <p>Analysis of the music catalogue and customer preferences.</p>
-        <p><strong>Genres<br>Artists<br>Tracks<br>Albums</strong></p>
-      </div>
-    </div>
+# 🔗 RELATIONSHIP LOGIC
 
-    <h3>🌍 GEOGRAPHIC ANALYSIS</h3>
-    <p>The relational structure also enables analysis from a geographic perspective:</p>
-    <div class="ascii-diagram">🌎 Revenue by Country ──► 👥 Customer Distribution ──► 💰 Purchasing Behaviour ──► 🎵 Popular Genres ──► 👤 Highest-Spending Customers</div>
-  </section>
+The database becomes analytically powerful because its tables are connected through relationships.
 
-  <hr>
+```text
+CUSTOMER
+   │
+   │ customer_id
+   ▼
+INVOICE
+   │
+   │ invoice_id
+   ▼
+INVOICE_LINE
+   │
+   │ track_id
+   ▼
+TRACK
+   │
+   ├──────────────► ALBUM
+   │                    │
+   │                    ▼
+   │                  ARTIST
+   │
+   └──────────────► GENRE
+```
 
-  <!-- SQL CONCEPTS USED -->
-  <section>
-    <h2>🧠 SQL CONCEPTS USED</h2>
+This structure allows a query to travel across multiple entities.
 
-    <h3>01 — Fundamental SQL</h3>
-    <p><code>SELECT</code> • <code>FROM</code> • <code>WHERE</code> • <code>ORDER BY</code> • <code>GROUP BY</code> • <code>DISTINCT</code> • <code>LIMIT</code></p>
+For example:
 
-    <h3>02 — Aggregate Functions</h3>
-    <p><code>COUNT()</code> • <code>SUM()</code> • <code>AVG()</code> • <code>MIN()</code> • <code>MAX()</code></p>
-    <div class="ascii-diagram"><span class="keyword">SELECT</span>
+```text
+Customer
+   ↓
+Invoice
+   ↓
+Invoice Line
+   ↓
+Track
+   ↓
+Genre
+```
+
+This makes it possible to investigate questions such as:
+
+**Which genres generate the highest purchasing activity?**
+
+---
+
+# 🖼️ DATABASE SCHEMA
+
+The repository contains the database schema/ER representation used to understand the relationships between the entities.
+
+The schema is important because it provides the structural foundation for the SQL analysis.
+
+### Core analytical entities
+
+| Entity          | Analytical Purpose                            |
+| --------------- | --------------------------------------------- |
+| 👥 Customer     | Customer information and purchasing behaviour |
+| 🧾 Invoice      | Transaction-level sales information           |
+| 📋 Invoice Line | Individual purchased items                    |
+| 🎵 Track        | Individual music tracks                       |
+| 💿 Album        | Album-level information                       |
+| 🎤 Artist       | Artist-level analysis                         |
+| 🎼 Genre        | Music-category analysis                       |
+| 🎧 Playlist     | Playlist information                          |
+| 👨‍💼 Employee  | Employee/support information                  |
+
+---
+
+# 🎯 BUSINESS QUESTIONS
+
+The project is organized around business-oriented questions rather than isolated SQL syntax.
+
+## 👥 CUSTOMER ANALYSIS
+
+Questions include:
+
+* Who is the highest-spending customer?
+* Which customers contribute the most revenue?
+* How much does each customer spend?
+* Who is the highest-spending customer within each country?
+* How does purchasing behaviour vary across customers?
+
+---
+
+## 💰 SALES & REVENUE ANALYSIS
+
+The project investigates:
+
+* Revenue generated across countries
+* Customer purchasing activity
+* Invoice-level sales
+* Revenue contribution by customers
+* Geographic purchasing patterns
+* Sales distribution
+
+---
+
+## 🎵 MUSIC ANALYSIS
+
+The database can be used to investigate:
+
+* Most popular genres
+* Artists with the largest number of tracks
+* Track-level purchasing behaviour
+* Album relationships
+* Music catalogue characteristics
+* Customer music preferences
+
+---
+
+## 🌍 GEOGRAPHIC ANALYSIS
+
+Geographic analysis connects customer location with purchasing behaviour.
+
+Examples include:
+
+```text
+Country
+   ↓
+Customers
+   ↓
+Invoices
+   ↓
+Revenue
+   ↓
+Music Preferences
+```
+
+This enables questions such as:
+
+* Which countries generate the most revenue?
+* Which genre is most popular within a country?
+* Who is the highest-spending customer in each country?
+
+---
+
+# 🧠 SQL CONCEPTS USED
+
+## 01 — BASIC QUERYING
+
+```sql
+SELECT
+FROM
+WHERE
+ORDER BY
+GROUP BY
+DISTINCT
+LIMIT
+```
+
+These concepts are used for initial data exploration and filtering.
+
+---
+
+## 02 — AGGREGATE FUNCTIONS
+
+```sql
+COUNT()
+SUM()
+AVG()
+MIN()
+MAX()
+```
+
+Example:
+
+```sql
+SELECT
     country,
-    <span class="function">SUM</span>(total) <span class="keyword">AS</span> revenue
-<span class="keyword">FROM</span> invoice
-<span class="keyword">GROUP BY</span> country;</div>
+    SUM(total) AS revenue
+FROM invoice
+GROUP BY country;
+```
 
-    <h3>03 — JOINs</h3>
-    <div class="ascii-diagram"><span class="keyword">SELECT</span>
+This converts individual transactions into country-level business metrics.
+
+---
+
+## 03 — JOINS
+
+Joins form the backbone of the relational analysis.
+
+Example:
+
+```sql
+SELECT
     c.first_name,
     c.last_name,
     i.total
-<span class="keyword">FROM</span> customer c
-<span class="keyword">JOIN</span> invoice i
-    <span class="keyword">ON</span> c.customer_id = i.customer_id;</div>
+FROM customer c
+JOIN invoice i
+    ON c.customer_id = i.customer_id;
+```
 
-    <h3>🔗 RELATIONAL ANALYSIS</h3>
-    <div class="ascii-diagram">CUSTOMER
-   │ (customer_id)
-   ▼
+The query connects customer information with invoice transactions.
+
+---
+
+## 04 — MULTI-TABLE JOINS
+
+More complex questions require multiple relationships.
+
+```text
+CUSTOMER
+    ↓
 INVOICE
-   │ (invoice_id)
-   ▼
-INVOICE LINE
-   │ (track_id)
-   ▼
-TRACK ──► ALBUM ──► ARTIST
-   │
-   └──► GENRE</div>
+    ↓
+INVOICE_LINE
+    ↓
+TRACK
+    ↓
+ALBUM
+    ↓
+ARTIST / GENRE
+```
 
-    <h3>🧩 SUBQUERIES</h3>
-    <div class="ascii-diagram">MAIN QUESTION ──► SUBQUERY ──► CALCULATED VALUE ──► FINAL RESULT</div>
+This allows customer transactions to be connected with music metadata.
 
-    <h3>🏗️ COMMON TABLE EXPRESSIONS (CTEs)</h3>
-    <div class="ascii-diagram"><span class="keyword">WITH</span> customer_sales <span class="keyword">AS</span>
+---
+
+## 05 — SUBQUERIES
+
+Subqueries allow one query to become part of another analytical calculation.
+
+```text
+MAIN QUERY
+     │
+     ▼
+SUBQUERY
+     │
+     ▼
+CALCULATED RESULT
+     │
+     ▼
+FINAL ANALYSIS
+```
+
+They are particularly useful when comparing individual results against calculated values.
+
+---
+
+## 06 — COMMON TABLE EXPRESSIONS
+
+CTEs improve the readability and organization of complex analytical queries.
+
+Example:
+
+```sql
+WITH customer_sales AS
 (
-    <span class="keyword">SELECT</span>
+    SELECT
         customer_id,
-        <span class="function">SUM</span>(total) <span class="keyword">AS</span> total_spent
-    <span class="keyword">FROM</span> invoice
-    <span class="keyword">GROUP BY</span> customer_id
+        SUM(total) AS total_spent
+    FROM invoice
+    GROUP BY customer_id
 )
-<span class="keyword">SELECT</span> * <span class="keyword">FROM</span> customer_sales;</div>
 
-    <h3>🪟 WINDOW FUNCTIONS</h3>
-    <p><code>ROW_NUMBER()</code> • <code>RANK()</code> • <code>DENSE_RANK()</code> • <code>SUM() OVER()</code> • <code>AVG() OVER()</code></p>
-  </section>
+SELECT *
+FROM customer_sales;
+```
 
-  <hr>
+This creates an intermediate analytical result that can be reused by the main query.
 
-  <!-- BUSINESS QUESTIONS TABLE -->
-  <section>
-    <h2>🎯 BUSINESS QUESTIONS</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Category</th>
-          <th>Key Questions Addressed</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>👥 Customer Analysis</strong></td>
-          <td>
-            • Who is the highest-spending customer?<br>
-            • Which customers contribute the most revenue?<br>
-            • Who is the highest-spending customer in each country?<br>
-            • How does customer purchasing behaviour vary?
-          </td>
-        </tr>
-        <tr>
-          <td><strong>💰 Sales Analysis</strong></td>
-          <td>
-            • Which countries generate the most revenue?<br>
-            • What is the purchasing activity across regions?<br>
-            • Which customers contribute most to sales?<br>
-            • How is revenue distributed?
-          </td>
-        </tr>
-        <tr>
-          <td><strong>🎵 Music Analysis</strong></td>
-          <td>
-            • Which genres are most popular?<br>
-            • Which artists have the most tracks?<br>
-            • Which tracks have the longest duration?<br>
-            • What patterns exist in customer music preferences?
-          </td>
-        </tr>
-        <tr>
-          <td><strong>🌍 Geographic Analysis</strong></td>
-          <td>
-            • Which countries have the highest purchasing activity?<br>
-            • Which genre is most popular within a country?<br>
-            • Who is the highest-spending customer within each country?
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
+---
 
-  <hr>
+## 07 — WINDOW FUNCTIONS
 
-  <!-- TECH STACK -->
-  <section>
-    <h2>🛠️ TECHNOLOGY STACK</h2>
-    <div class="badge-group" style="justify-content: flex-start;">
-      <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white" alt="PostgreSQL" />
-      <img src="https://img.shields.io/badge/SQL-336791?style=for-the-badge&logo=postgresql&logoColor=white" alt="SQL" />
-      <img src="https://img.shields.io/badge/pgAdmin4-336791?style=for-the-badge&logo=postgresql&logoColor=white" alt="pgAdmin4" />
-      <img src="https://img.shields.io/badge/Data%20Analytics-00A86B?style=for-the-badge" alt="Data Analytics" />
-      <img src="https://img.shields.io/badge/Business%20Insights-00B8D4?style=for-the-badge" alt="Business Insights" />
-    </div>
+Advanced analytical questions can be solved using window functions such as:
 
-    <table>
-      <thead>
-        <tr>
-          <th>Technology</th>
-          <th>Role</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>🐘 <strong>PostgreSQL</strong></td>
-          <td>Relational database engine</td>
-        </tr>
-        <tr>
-          <td>💻 <strong>SQL</strong></td>
-          <td>Querying, transformation and analysis</td>
-        </tr>
-        <tr>
-          <td>🖥️ <strong>pgAdmin 4</strong></td>
-          <td>Database management and SQL execution</td>
-        </tr>
-        <tr>
-          <td>📊 <strong>Data Analytics</strong></td>
-          <td>Business-question-driven analysis</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
+```sql
+ROW_NUMBER()
+RANK()
+DENSE_RANK()
+SUM() OVER()
+AVG() OVER()
+```
 
-  <hr>
+These are particularly useful for ranking customers and performing group-level comparisons.
 
-  <!-- REPOSITORY RESOURCES -->
-  <section>
-    <h2>📁 REPOSITORY RESOURCES</h2>
-    <ul class="resource-list">
-      <li>
-        <a href="https://github.com/keshavkapill/MUSIC-STORE-ANALYSIS-BY-SQL/tree/main/DataAnalyst-Question" target="_blank">
-          <img src="https://img.shields.io/badge/📋%20OPEN-DATA%20ANALYST%20QUESTIONS-FF6B35?style=for-the-badge" alt="Data Analyst Questions" />
-        </a>
-        <br><small>Questions that define the analytical problems addressed by the project.</small>
-      </li>
-      <li>
-        <a href="https://github.com/keshavkapill/MUSIC-STORE-ANALYSIS-BY-SQL/tree/main/DataSet_CSV" target="_blank">
-          <img src="https://img.shields.io/badge/🗃️%20OPEN-DATASET%20CSV-00A86B?style=for-the-badge" alt="Dataset CSV" />
-        </a>
-        <br><small>CSV-based dataset resources used as part of the project.</small>
-      </li>
-      <li>
-        <a href="https://github.com/keshavkapill/MUSIC-STORE-ANALYSIS-BY-SQL/tree/main/SQL-File-DataSet" target="_blank">
-          <img src="https://img.shields.io/badge/💻%20OPEN-SQL%20FILES-4169E1?style=for-the-badge" alt="SQL Files" />
-        </a>
-        <br><small>SQL/database resources used for querying and analysing the Music Store data.</small>
-      </li>
-      <li>
-        <a href="https://github.com/keshavkapill/MUSIC-STORE-ANALYSIS-BY-SQL/blob/main/Music_Store-DataAnalysis-Report.pdf" target="_blank">
-          <img src="https://img.shields.io/badge/📄%20VIEW-DATA%20ANALYSIS%20REPORT-E53935?style=for-the-badge" alt="Report PDF" />
-        </a>
-      </li>
-      <li>
-        <a href="https://github.com/keshavkapill/MUSIC-STORE-ANALYSIS-BY-SQL/blob/main/Music_Store-DataAnalysis-Report.pptx" target="_blank">
-          <img src="https://img.shields.io/badge/📊%20VIEW-PROJECT%20PRESENTATION-8A2BE2?style=for-the-badge" alt="Presentation PPTX" />
-        </a>
-      </li>
-    </ul>
-  </section>
+---
 
-  <hr>
+# 🧩 ANALYTICAL CATEGORIES
 
-  <!-- STEPS -->
-  <section>
-    <h2>🚀 HOW TO EXPLORE THE PROJECT</h2>
-    <ul>
-      <li><strong>STEP 01 — Understand the Questions:</strong> Start inside <code>DataAnalyst-Question/</code> to review business problems.</li>
-      <li><strong>STEP 02 — Understand the Dataset:</strong> Explore <code>DataSet_CSV/</code> to understand entity attributes.</li>
-      <li><strong>STEP 03 — Understand the Database:</strong> Review SQL scripts inside <code>SQL-File-DataSet/</code>.</li>
-      <li><strong>STEP 04 — Execute SQL Analysis:</strong> Use PostgreSQL / pgAdmin 4 to run queries.</li>
-      <li><strong>STEP 05 — Interpret Results:</strong> Connect query outputs back to real business strategy.</li>
-      <li><strong>STEP 06 — Review the Final Analysis:</strong> Open the PDF report or PPTX presentation deck.</li>
-    </ul>
-  </section>
+<div align="center">
 
-  <hr>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="author-box">
-      <img src="https://img.shields.io/badge/KESHAV%20KAPIL-Data%20Analytics%20%7C%20SQL%20%7C%20Cloud-00E5FF?style=for-the-badge" alt="Author Badge" />
-      <h3 style="margin-top: 15px;">BTech Computer Science Engineering</h3>
-      <p>SQL • Data Analytics • Cloud • Full-Stack Development</p>
-      
-      <div class="badge-group" style="margin-top: 15px;">
-        <a href="https://github.com/keshavkapill" target="_blank">
-          <img src="https://img.shields.io/badge/GitHub-KESHAVKAPILL-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
-        </a>
-        <a href="https://www.linkedin.com/in/keshavkapil15/" target="_blank">
-          <img src="https://img.shields.io/badge/LinkedIn-KESHAVKAPIL15-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
-        </a>
-      </div>
-    </div>
-
-    <div class="badge-group">
-      <img src="https://img.shields.io/badge/🎵%20TURNING%20DATA%20INTO%20INSIGHTS-ONE%20QUERY%20AT%20A%20TIME-00E5FF?style=for-the-badge" alt="Tagline" />
-    </div>
-
-    <p><strong>Made with ❤️ by Keshav Kapil</strong></p>
-  </footer>
+|    👥 CUSTOMER   |       💰 SALES       | 🎵 MUSIC |      🌍 GEOGRAPHY      |
+| :--------------: | :------------------: | :------: | :--------------------: |
+|     Spending     |        Revenue       |  Genres  |        Countries       |
+|     Purchases    |       Invoices       |  Artists |  Customer Distribution |
+|     Customers    |    Sales Activity    |  Tracks  |     Regional Demand    |
+| Customer Ranking | Revenue Contribution |  Albums  | Country-level Spending |
 
 </div>
 
-</body>
-</html>
+---
+
+# 🔄 END-TO-END ANALYTICS PIPELINE
+
+```text
+┌───────────────────────────┐
+│       RAW DATA            │
+│      CSV / SQL DATA       │
+└─────────────┬─────────────┘
+              │
+              ▼
+┌───────────────────────────┐
+│   DATABASE UNDERSTANDING  │
+│   Tables + Relationships  │
+└─────────────┬─────────────┘
+              │
+              ▼
+┌───────────────────────────┐
+│    BUSINESS QUESTIONS     │
+│ What do we want to know?  │
+└─────────────┬─────────────┘
+              │
+              ▼
+┌───────────────────────────┐
+│       SQL QUERIES         │
+│ JOIN + GROUP + FILTER     │
+└─────────────┬─────────────┘
+              │
+              ▼
+┌───────────────────────────┐
+│     ANALYTICAL OUTPUT     │
+│ Rankings + Aggregations   │
+└─────────────┬─────────────┘
+              │
+              ▼
+┌───────────────────────────┐
+│     BUSINESS INSIGHTS     │
+│ Data → Information        │
+└───────────────────────────┘
+```
+
+---
+
+# 🛠️ TECHNOLOGY STACK
+
+<div align="center">
+
+<img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white"/>
+<img src="https://img.shields.io/badge/SQL-336791?style=for-the-badge&logo=postgresql&logoColor=white"/>
+<img src="https://img.shields.io/badge/pgAdmin4-336791?style=for-the-badge&logo=postgresql&logoColor=white"/>
+<img src="https://img.shields.io/badge/Data%20Analytics-8A2BE2?style=for-the-badge"/>
+
+</div>
+
+| Technology            | Purpose                                 |
+| --------------------- | --------------------------------------- |
+| 🐘 **PostgreSQL**     | Relational database management          |
+| 💻 **SQL**            | Data querying and analytical processing |
+| 🖥️ **pgAdmin 4**     | Database management and query execution |
+| 📊 **Data Analytics** | Business-question-driven analysis       |
+| 📁 **CSV**            | Dataset resources                       |
+
+---
+
+# 📁 REPOSITORY STRUCTURE
+
+The repository is organized around the complete analytics workflow.
+
+```text
+MUSIC-STORE-ANALYSIS-BY-SQL/
+│
+├── 📁 DataAnalyst-Question/
+│   └── Business / analytical questions
+│
+├── 📁 DataSet_CSV/
+│   └── CSV dataset resources
+│
+├── 📁 SQL-File-DataSet/
+│   └── SQL / database resources
+│
+├── 📄 Music_Store-DataAnalysis-Report.pdf
+│
+├── 📊 Music_Store-DataAnalysis-Report.pptx
+│
+└── 📘 README.md
+```
+
+---
+
+# 📋 PROJECT RESOURCES
+
+### 📌 DATA ANALYST QUESTIONS
+
+The `DataAnalyst-Question` directory contains the analytical questions that define the problems being investigated.
+
+**Purpose:**
+
+```text
+Business Question
+       ↓
+SQL Problem
+       ↓
+Query
+       ↓
+Result
+       ↓
+Insight
+```
+
+---
+
+### 🗃️ DATASET
+
+The `DataSet_CSV` directory contains the CSV-based dataset resources used within the project.
+
+The dataset represents the different entities required to recreate and analyse the music-store database.
+
+---
+
+### 💻 SQL DATABASE FILES
+
+The `SQL-File-DataSet` directory contains the SQL/database resources used for working with the project.
+
+These resources provide the foundation for:
+
+* Database creation
+* Data loading
+* Table structure
+* SQL analysis
+* Query execution
+
+---
+
+### 📄 DATA ANALYSIS REPORT
+
+The repository includes:
+
+**`Music_Store-DataAnalysis-Report.pdf`**
+
+The report provides a consolidated presentation of the analytical work and project findings.
+
+---
+
+### 📊 PROJECT PRESENTATION
+
+The repository also includes:
+
+**`Music_Store-DataAnalysis-Report.pptx`**
+
+This presentation provides a visual summary of the project and its analytical outcomes.
+
+---
+
+# 🚀 HOW TO RUN / EXPLORE THE PROJECT
+
+## STEP 01 — Install PostgreSQL
+
+Install PostgreSQL and ensure that PostgreSQL is running correctly.
+
+---
+
+## STEP 02 — Open pgAdmin 4
+
+Launch pgAdmin 4 and connect to your PostgreSQL server.
+
+---
+
+## STEP 03 — Create / Load the Database
+
+Use the SQL resources available inside:
+
+```text
+SQL-File-DataSet/
+```
+
+to create and populate the required database.
+
+---
+
+## STEP 04 — Understand the Schema
+
+Before running analytical queries, inspect the relationships between:
+
+```text
+Customer
+Invoice
+Invoice Line
+Track
+Album
+Artist
+Genre
+Playlist
+Employee
+```
+
+Understanding these relationships is essential for writing correct joins.
+
+---
+
+## STEP 05 — Review the Questions
+
+Open:
+
+```text
+DataAnalyst-Question/
+```
+
+and identify the business question you want to investigate.
+
+---
+
+## STEP 06 — Write / Execute SQL
+
+Use PostgreSQL / pgAdmin 4 to execute the relevant SQL analysis.
+
+---
+
+## STEP 07 — Interpret the Results
+
+Do not stop at obtaining a table of results.
+
+The final stage is:
+
+```text
+QUERY RESULT
+     ↓
+PATTERN
+     ↓
+OBSERVATION
+     ↓
+BUSINESS MEANING
+```
+
+---
+
+# 📊 WHAT THIS PROJECT DEMONSTRATES
+
+This project demonstrates practical understanding of:
+
+```text
+✓ Relational Database Concepts
+✓ SQL Querying
+✓ Data Exploration
+✓ Data Aggregation
+✓ Multi-table JOINs
+✓ Subqueries
+✓ CTEs
+✓ Window Functions
+✓ Customer Analytics
+✓ Revenue Analysis
+✓ Geographic Analysis
+✓ Music Catalogue Analysis
+✓ Business Question Formulation
+✓ Data-driven Insight Generation
+```
+
+---
+
+# 💼 REAL-WORLD APPLICATION
+
+The same analytical approach can be applied to many real-world business domains.
+
+```text
+🎵 Music Store
+      │
+      ├── Customer Analytics
+      ├── Revenue Analytics
+      ├── Product Analytics
+      ├── Geographic Analytics
+      └── Behavioural Analytics
+```
+
+The same methodology can be transferred to:
+
+* E-commerce
+* Retail
+* Subscription businesses
+* Streaming platforms
+* Banking
+* SaaS products
+* Marketing analytics
+* Customer relationship management
+
+The domain changes, but the analytical process remains similar:
+
+> **Understand → Query → Analyse → Interpret → Decide**
+
+---
+
+# 🧠 KEY LEARNING OUTCOMES
+
+Through this project, the following concepts can be practiced in a realistic context:
+
+### DATABASE THINKING
+
+Understanding how real-world entities are represented through relational tables.
+
+### SQL THINKING
+
+Converting a business question into a structured SQL query.
+
+### RELATIONAL THINKING
+
+Understanding how different entities connect through primary and foreign keys.
+
+### ANALYTICAL THINKING
+
+Moving beyond raw numbers and identifying meaningful patterns.
+
+### BUSINESS THINKING
+
+Understanding why a particular result matters rather than simply producing the result.
+
+---
+
+# 📈 PROJECT MATURITY
+
+```text
+LEVEL 01
+DATA COLLECTION
+     ↓
+LEVEL 02
+DATABASE STRUCTURE
+     ↓
+LEVEL 03
+SQL EXPLORATION
+     ↓
+LEVEL 04
+RELATIONAL ANALYSIS
+     ↓
+LEVEL 05
+ADVANCED SQL
+     ↓
+LEVEL 06
+BUSINESS INSIGHTS
+```
+
+This makes the project more than a collection of SQL queries.
+
+It represents a complete **SQL-based analytical workflow**.
+
+---
+
+# 🔮 FUTURE ENHANCEMENTS
+
+Potential extensions to the project include:
+
+* 📊 Build an interactive Power BI dashboard
+* 📈 Add visual sales and customer KPIs
+* 🌍 Create geographic revenue visualizations
+* 👥 Develop customer segmentation
+* 🎵 Analyse genre-level customer preferences
+* 📅 Add time-series revenue analysis
+* 🏆 Create customer ranking dashboards
+* 🔄 Automate the SQL-to-dashboard pipeline
+* 📌 Add advanced business KPIs
+
+---
+
+# 📚 PROJECT DOCUMENTATION
+
+<div align="center">
+
+<a href="https://github.com/keshavkapill/MUSIC-STORE-ANALYSIS-BY-SQL/tree/main/DataAnalyst-Question">
+<img src="https://img.shields.io/badge/📋%20DATA%20ANALYST%20QUESTIONS-FF6B35?style=for-the-badge"/>
+</a>
+
+<a href="https://github.com/keshavkapill/MUSIC-STORE-ANALYSIS-BY-SQL/tree/main/DataSet_CSV">
+<img src="https://img.shields.io/badge/🗃️%20DATASET-00A86B?style=for-the-badge"/>
+</a>
+
+<a href="https://github.com/keshavkapill/MUSIC-STORE-ANALYSIS-BY-SQL/tree/main/SQL-File-DataSet">
+<img src="https://img.shields.io/badge/💻%20SQL%20FILES-4169E1?style=for-the-badge"/>
+</a>
+
+<br><br>
+
+<a href="https://github.com/keshavkapill/MUSIC-STORE-ANALYSIS-BY-SQL/blob/main/Music_Store-DataAnalysis-Report.pdf">
+<img src="https://img.shields.io/badge/📄%20ANALYSIS%20REPORT-E53935?style=for-the-badge"/>
+</a>
+
+<a href="https://github.com/keshavkapill/MUSIC-STORE-ANALYSIS-BY-SQL/blob/main/Music_Store-DataAnalysis-Report.pptx">
+<img src="https://img.shields.io/badge/📊%20PROJECT%20PRESENTATION-8A2BE2?style=for-the-badge"/>
+</a>
+
+</div>
+
+---
+
+# 👨‍💻 AUTHOR
+
+<div align="center">
+
+<img src="https://img.shields.io/badge/KESHAV%20KAPIL-Data%20Analytics%20%7C%20SQL%20%7C%20Cloud-7C3AED?style=for-the-badge"/>
+
+### BTech Computer Science Engineering
+
+**SQL • Data Analytics • Cloud • Full-Stack Development**
+
+<br>
+
+<a href="https://github.com/keshavkapill">
+<img src="https://img.shields.io/badge/GitHub-KESHAVKAPILL-181717?style=for-the-badge&logo=github&logoColor=white"/>
+</a>
+
+<a href="https://www.linkedin.com/in/keshavkapil15/">
+<img src="https://img.shields.io/badge/LinkedIn-KESHAVKAPIL15-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white"/>
+</a>
+
+</div>
+
+---
+
+<div align="center">
+
+### 🎵 `TURNING DATA INTO INSIGHTS — ONE QUERY AT A TIME`
+
+<br>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:00C2FF,35:6D28D9,70:312E81,100:0F172A&height=120&section=footer"/>
+
+**Made with ❤️ by Keshav Kapil**
+
+</div>
