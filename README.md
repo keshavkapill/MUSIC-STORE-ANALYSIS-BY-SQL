@@ -56,11 +56,21 @@ Instead of simply writing queries, the project follows a complete analytical pro
 
 > **Understand the data → Ask business questions → Query the database → Analyze the results → Extract insights**
 
+<br>
+
+<!-- ===================================================== -->
+<!-- 🔴 PROBLEM STATEMENT -->
+<!-- ===================================================== -->
+
 <table>
 <tr>
-<td>
+<td style="border: 2px solid #ff1744; padding: 24px; background-color: #120b0e;">
 
-## 🔴 01 — PROBLEM STATEMENT
+<h2 style="color:#ff1744;">
+🔴 01 — PROBLEM STATEMENT
+</h2>
+
+<hr style="border: 0; border-top: 1px solid #ff1744;">
 
 A digital music store generates data across multiple interconnected entities including **customers, invoices, tracks, albums, artists, genres, employees, and playlists**.
 
@@ -74,11 +84,19 @@ This project addresses the problem through structured SQL analysis, transforming
 
 <br>
 
+<!-- ===================================================== -->
+<!-- 🟢 APPROACH -->
+<!-- ===================================================== -->
+
 <table>
 <tr>
-<td>
+<td style="border: 2px solid #00e676; padding: 24px; background-color: #07130d;">
 
-## 🔵 02 — APPROACH
+<h2 style="color:#00e676;">
+🟢 02 — APPROACH
+</h2>
+
+<hr style="border: 0; border-top: 1px solid #00e676;">
 
 The project follows an **end-to-end SQL data analysis workflow**.
 
@@ -94,11 +112,19 @@ Advanced queries combine multiple relational tables to determine patterns such a
 
 <br>
 
+<!-- ===================================================== -->
+<!-- 🔵 FINDINGS -->
+<!-- ===================================================== -->
+
 <table>
 <tr>
-<td>
+<td style="border: 2px solid #00e5ff; padding: 24px; background-color: #061216;">
 
-## 🟢 03 — FINDINGS
+<h2 style="color:#00e5ff;">
+🔵 03 — FINDINGS
+</h2>
+
+<hr style="border: 0; border-top: 1px solid #00e5ff;">
 
 The SQL analysis reveals meaningful patterns across the music-store database.
 
@@ -120,22 +146,55 @@ Imagine a music store with thousands of customers, invoices, tracks, albums and 
 
 The database contains a lot of information, but raw data alone does not answer questions such as:
 
-> Who spends the most?
+> 🎯 Who spends the most?
 
-> Which country generates the highest revenue?
+> 🌍 Which country generates the highest revenue?
 
-> What music genre is most popular?
+> 🎵 What music genre is most popular?
 
-> Which artists have the most Rock tracks?
+> 🎸 Which artists have the most Rock tracks?
 
-> Which customers are the most valuable?
+> 👥 Which customers are the most valuable?
 
-This project uses **SQL as the analytical tool** to turn those questions into measurable answers. 
+This project uses **SQL as the analytical tool** to turn those questions into measurable answers.
 
-Schema- Music Store Database  
-![MusicDatabaseSchema](https://user-images.githubusercontent.com/112153548/213707717-bfc9f479-52d9-407b-99e1-e94db7ae10a3.png)
+---
 
-### The complete idea
+# 🗄️ Database Schema
+
+The project is built around a relational **Music Store Database** containing interconnected entities such as:
+
+- 👤 **Customer**
+- 🧾 **Invoice**
+- 📋 **Invoice Line**
+- 🎵 **Track**
+- 💿 **Album**
+- 🎤 **Artist**
+- 🎼 **Genre**
+- 👨‍💼 **Employee**
+- 🎧 **Playlist**
+- 🔗 **Playlist Track**
+- 🌍 **Country / Location**
+
+The relationships between these tables allow SQL queries to connect customer activity, purchases, tracks, albums, artists and genres.
+
+### Music Store Database Schema
+
+<p align="center">
+
+<img 
+src="https://user-images.githubusercontent.com/112153548/213707717-bfc9f479-52d9-407b-99e1-e94db7ae10a3.png"
+alt="Music Store Database Schema"
+width="850"
+/>
+
+</p>
+
+---
+
+# 🔄 Complete Analytical Flow
+
+The complete analytical process can be represented as:
 
 ```text
                  🎵 RAW MUSIC STORE DATA
